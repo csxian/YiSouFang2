@@ -97,7 +97,7 @@ public class DropMenuAdapter implements MenuAdapter {
                 view = createHouseTypeSingleListView(HouseTypeList,2);
                 break;
             case 3:
-                // view = createDoubleGrid();
+
                 view = createBetterDoubleGrid();
                 break;
         }
