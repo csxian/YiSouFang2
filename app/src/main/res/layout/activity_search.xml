@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.SearchActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="?attr/colorPrimary">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingRight="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="15dp"
+                android:background="@mipmap/city_edit">
+
+                <TextView
+                    android:id="@+id/tv_house_select"
+                    android:layout_width="80dp"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/pulldown"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/city_edit"
+                    android:padding="2dp"
+                    android:text="二手房"/>
+
+                <com.example.jon.yisoufang2.utils.ClearEditText
+                    android:id="@+id/filter_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:background="@mipmap/city_edit"
+
+                    android:hint="请输入小区名称"
+                    android:singleLine="true"
+
+                    android:textSize="15.0dip" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_house_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="搜索"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_below="@id/toolbar">
+        <TextView
+            android:id="@+id/tv_error_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="请搜索相关信息"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

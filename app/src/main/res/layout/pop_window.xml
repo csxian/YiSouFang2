@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white">
+    <TextView
+        android:id="@+id/tv_secondhand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:clickable="true"
+        android:textColor="@drawable/pop_text_color"
+        android:text="二手房"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_e7e7e7"/>
+    <TextView
+        android:id="@+id/tv_rent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@drawable/pop_text_color"
+        android:padding="10dp"
+        android:clickable="true"
+        android:text="租房"/>
+
+</LinearLayout>
