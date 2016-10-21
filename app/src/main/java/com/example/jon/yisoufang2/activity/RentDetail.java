@@ -52,6 +52,7 @@ public class RentDetail extends AppCompatActivity implements RentDetailView{
     private Banner mBanner;
     private RentDetailPresenter presenter;
     private LinearLayout llPhoneCall;
+    private LinearLayout llRentShare;
 
 
     @Override
@@ -97,6 +98,7 @@ public class RentDetail extends AppCompatActivity implements RentDetailView{
         tvAgentPhone = (TextView) findViewById(R.id.rent_agent_phone);
         tvRentMainTitle = (TextView) findViewById(R.id.rent_main_title);
         llPhoneCall = (LinearLayout) findViewById(R.id.ll_phone_call);
+        llRentShare = (LinearLayout) findViewById(R.id.ll_rent_share);
 
         mBanner = (Banner) findViewById(R.id.banner);
         mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
@@ -113,7 +115,20 @@ public class RentDetail extends AppCompatActivity implements RentDetailView{
             }
         });
 
+        llRentShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
+                String content = "来自易搜房： "+tvRentTitle.getText()+"租金为:"+tvRentRental.getText()
+                        +",面积："+tvRentArea.getText()+","+tvRentType.getText()+"。";
+                intent.putExtra(Intent.EXTRA_TEXT, content);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(Intent.createChooser(intent, getTitle()));
 
+            }
+        });
 
     }
 
