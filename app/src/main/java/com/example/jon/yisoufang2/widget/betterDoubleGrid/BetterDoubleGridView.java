@@ -22,11 +22,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * auther: baiiu
- * time: 16/6/5 05 23:03
- * description:
- */
+
 public class BetterDoubleGridView extends LinearLayout implements View.OnClickListener {
 
     @Bind(R.id.recyclerView)
@@ -185,17 +181,11 @@ public class BetterDoubleGridView extends LinearLayout implements View.OnClickLi
     @OnClick(R.id.bt_confirm)
     public void clickDone() {
 
-//        FilterUrl.instance().doubleGridTop = mTopSelectedTextView == null ? "" : (String) mTopSelectedTextView.getTag();
-//        FilterUrl.instance().doubleGridBottom = mBottomSelectedTextView == null ? "" : (String) mBottomSelectedTextView.getTag();
-
         FilterUrl.instance().mOrientation = orientation_tv == null ? "" : (String)orientation_tv.getTag();
         FilterUrl.instance().mAreas = areas_tv == null ? "" : (String)areas_tv.getTag();
         FilterUrl.instance().mAge = age_tv == null ? "" : (String)age_tv.getTag();
         FilterUrl.instance().mFloor = floor_tv == null ? "" : (String)floor_tv.getTag();
         FilterUrl.instance().mFitment = fitment_tv == null ? "" : (String)fitment_tv.getTag();
-
-
-
 
         if (mOnFilterDoneListener != null) {
             mOnFilterDoneListener.onFilterDone(3, "", "");
