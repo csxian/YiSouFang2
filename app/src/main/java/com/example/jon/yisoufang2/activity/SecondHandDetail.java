@@ -2,12 +2,14 @@ package com.example.jon.yisoufang2.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +47,8 @@ public class SecondHandDetail extends AppCompatActivity implements SecondHandDet
     private TextView tvSecondHandMainTitle;
     private SecondHandDetailPresent presenter;
     private Banner mBanner;
+    private LinearLayout llSecondHandShare;
+    private LinearLayout llSecondHandPhoneCall;
 
 
     @Override
@@ -100,6 +104,32 @@ public class SecondHandDetail extends AppCompatActivity implements SecondHandDet
         mBanner.isAutoPlay(true);
         mBanner.setDelayTime(3000);
         mBanner.setIndicatorGravity(BannerConfig.CENTER);
+
+        llSecondHandShare = (LinearLayout) findViewById(R.id.ll_secondhand_share);
+        llSecondHandPhoneCall = (LinearLayout) findViewById(R.id.ll_secondhand_phonecall);
+
+        llSecondHandPhoneCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+tvAgentPhone.getText()));
+                startActivity(intent);
+            }
+        });
+
+        llSecondHandShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
+                String content = "来自易搜房： "+tvSecondTitle.getText()+"售价为:"+tvSecondPrice.getText()
+                        +",面积："+tvSecondArea.getText()+","+tvSecondHouseType.getText()+"。";
+                intent.putExtra(Intent.EXTRA_TEXT, content);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(Intent.createChooser(intent, getTitle()));
+
+            }
+        });
 
     }
 
